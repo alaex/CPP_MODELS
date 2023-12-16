@@ -1,13 +1,13 @@
-NAME = megaphone
+NAME = Sed_is_for_losers
 
-src = megaphone.cpp
+src = raplace.cpp main.cpp
 obj = ${src:.cpp=.o}
 
-FLAGS = -Wall -Wextra -Werror
-CC = c++
+FLAGS = -Wall -Wextra -Werror -std=c++98
+CC = c++ 
 all: ${NAME}
 
-%.o: %.cpp
+%.o: %.cpp  raplace.hpp
 	${CC} ${FLAGS} -c $< -o $@
 
 ${NAME}: ${obj}

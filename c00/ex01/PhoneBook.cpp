@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 19:17:24 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/04 14:45:22 by aen-naas         ###   ########.fr       */
+/*   Updated: 2023/12/16 15:10:14 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	PhoneBook::display_contact_info()
 	prompt = my_get_line("PLEASE ENTER THE CONTACT INDEX");
 	while (check_prompt_value(prompt))
 		prompt = my_get_line("please enter number between 1-8: ");
-	index = std::stoi(prompt);
+	index = std::atoi(prompt.c_str());
 	if (index > 8 || index < 1)
 	{
 		std::cout << "INDEX OUT OF REANGE" << std::endl;

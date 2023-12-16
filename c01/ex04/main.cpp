@@ -1,41 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 17:46:35 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/10 15:25:28 by aen-naas         ###   ########.fr       */
+/*   Created: 2023/12/11 19:32:37 by aen-naas          #+#    #+#             */
+/*   Updated: 2023/12/12 13:06:30 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "raplace.hpp"
 
 int main(int ac, char **av)
 {
-	int			i;
-	int			j;
-	std::string	myString = "";
+	if (ac < 3 || ac > 4)
+		return 1;
 
-	i = 1;
-	if (ac == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else
-	{
-		while (av[i])
-		{
-			j = 0;
-			while (av[i][j])
-			{
-				myString += std::toupper(av[i][j]);
-				j++;
-			}
-			std::cout << myString;
-			myString = "";
-			i++;
-		}
-		std::cout << std::endl;
-	}
+	std::string file;
+	std::string orignal;
+	std::string replaced;
+
+	file = av[1];
+	orignal = av[2];
+	replaced = av[3];
+	Replace replace(file, orignal, replaced);
 }

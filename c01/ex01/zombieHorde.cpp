@@ -1,41 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 17:46:35 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/10 15:25:28 by aen-naas         ###   ########.fr       */
+/*   Created: 2023/12/06 17:36:42 by aen-naas          #+#    #+#             */
+/*   Updated: 2023/12/06 18:08:25 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "Zombie.hpp"
 
-int main(int ac, char **av)
+
+
+Zombie* zombieHorde(int N, std::string name)
 {
-	int			i;
-	int			j;
-	std::string	myString = "";
-
-	i = 1;
-	if (ac == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else
+	Zombie *array_zombie = new Zombie[N];
+	for (int i = 0; i < N; i++)
 	{
-		while (av[i])
-		{
-			j = 0;
-			while (av[i][j])
-			{
-				myString += std::toupper(av[i][j]);
-				j++;
-			}
-			std::cout << myString;
-			myString = "";
-			i++;
-		}
-		std::cout << std::endl;
+		array_zombie[i].setName(name);
 	}
+	return  (array_zombie);
 }

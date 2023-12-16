@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 17:46:35 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/10 15:25:28 by aen-naas         ###   ########.fr       */
+/*   Created: 2023/12/10 16:55:55 by aen-naas          #+#    #+#             */
+/*   Updated: 2023/12/11 15:12:17 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-int main(int ac, char **av)
+int main()
 {
-	int			i;
-	int			j;
-	std::string	myString = "";
-
-	i = 1;
-	if (ac == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else
 	{
-		while (av[i])
-		{
-			j = 0;
-			while (av[i][j])
-			{
-				myString += std::toupper(av[i][j]);
-				j++;
-			}
-			std::cout << myString;
-			myString = "";
-			i++;
-		}
-		std::cout << std::endl;
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("sniper");
+		bob.attack();
+		club.setType("M4");
+		bob.attack();
 	}
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		club.setType("M4"); 
+		jim.attack();
+		jim.setWeapon(club);
+		jim.attack();
+	}
+	return 0;
 }

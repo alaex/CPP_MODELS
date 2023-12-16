@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 17:46:35 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/10 15:25:28 by aen-naas         ###   ########.fr       */
+/*   Created: 2023/12/14 18:21:44 by aen-naas          #+#    #+#             */
+/*   Updated: 2023/12/15 12:37:28 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "Harl.hpp"
 
-int main(int ac, char **av)
+int main(int argc, char **av)
 {
-	int			i;
-	int			j;
-	std::string	myString = "";
+	Harl myHarl;
+	int i = 0;
 
-	i = 1;
-	if (ac == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else
+	if (argc != 2)
+		return 1;
+	while (i < 4)
 	{
-		while (av[i])
-		{
-			j = 0;
-			while (av[i][j])
-			{
-				myString += std::toupper(av[i][j]);
-				j++;
-			}
-			std::cout << myString;
-			myString = "";
-			i++;
-		}
-		std::cout << std::endl;
+		if (myHarl.levels[i] == av[1])
+			break;
+		i++;
+	}
+	if (i == 5)
+		return 1;
+	switch (i)
+	{
+		case 0:
+			myHarl.complain(myHarl.levels[0]);
+		case 1:
+			myHarl.complain(myHarl.levels[1]);
+		case 2:
+			myHarl.complain(myHarl.levels[2]);
+		case 3:
+			myHarl.complain(myHarl.levels[3]);
 	}
 }

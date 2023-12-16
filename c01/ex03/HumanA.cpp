@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 17:46:35 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/10 15:25:28 by aen-naas         ###   ########.fr       */
+/*   Created: 2023/12/10 17:05:51 by aen-naas          #+#    #+#             */
+/*   Updated: 2023/12/11 15:11:56 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "HumanA.hpp"
 
-int main(int ac, char **av)
+HumanA::HumanA(std::string human_name ,Weapon& weapon_type) : ply_weapon(weapon_type)
 {
-	int			i;
-	int			j;
-	std::string	myString = "";
-
-	i = 1;
-	if (ac == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else
-	{
-		while (av[i])
-		{
-			j = 0;
-			while (av[i][j])
-			{
-				myString += std::toupper(av[i][j]);
-				j++;
-			}
-			std::cout << myString;
-			myString = "";
-			i++;
-		}
-		std::cout << std::endl;
-	}
+	this->name = human_name;
+}
+void HumanA::attack()
+{
+	std::cout << this->name << " attacks with their " << ply_weapon.getType() << '\n';
+}
+HumanA::~HumanA()
+{
+	std::cout << "distructr has been called for " << this->name << '\n';
 }

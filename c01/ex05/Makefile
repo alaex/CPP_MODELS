@@ -1,13 +1,13 @@
-NAME = megaphone
+NAME = harl
 
-src = megaphone.cpp
+src = main.cpp Harl.cpp
 obj = ${src:.cpp=.o}
 
-FLAGS = -Wall -Wextra -Werror
-CC = c++
+FLAGS = -Wall -Wextra -Werror -std=c++98
+CC = c++ 
 all: ${NAME}
 
-%.o: %.cpp
+%.o: %.cpp  Harl.hpp
 	${CC} ${FLAGS} -c $< -o $@
 
 ${NAME}: ${obj}
