@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:27:01 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/06 12:47:48 by aen-naas         ###   ########.fr       */
+/*   Updated: 2023/12/19 20:59:58 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ class Zombie {
 	private:
 		std::string name;
 	public:
-		Zombie();
 		Zombie(std::string name);
 		void	announce(void);
 		~Zombie();

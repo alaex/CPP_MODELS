@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 17:42:52 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/10 15:15:15 by aen-naas         ###   ########.fr       */
+/*   Updated: 2023/12/20 14:41:13 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int main()
 {
-	int count = INT_MAX;
+	int count = 3;
+
 	if (count < 0)
 	{
 		std::cout << "pass positive number" << '\n';

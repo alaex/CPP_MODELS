@@ -7,7 +7,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 CC = c++ 
 all: ${NAME}
 
-%.o: %.cpp Zombie.hpp
+%.o: %.cpp
 	${CC} ${FLAGS} -c $< -o $@
 
 ${NAME}: ${obj}

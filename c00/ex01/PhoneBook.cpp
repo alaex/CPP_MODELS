@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 19:17:24 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/16 15:10:14 by aen-naas         ###   ########.fr       */
+/*   Updated: 2023/12/19 11:07:52 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,12 @@ void	ft_draw_border(std::string str, int i)
 
 int	check_prompt_value(std::string prompt)
 {
+	int len;
+
+	len = prompt.length();
 	if (prompt.empty())
 		return 1;
-	for (unsigned long i = 0; i < prompt.length(); i++)
+	for (int i = 0; i < len; i++)
 	{
 		if (prompt[i] && !isdigit(prompt[i]))
 			return 1;
