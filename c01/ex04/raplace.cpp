@@ -6,78 +6,57 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:24:23 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/20 18:27:39 by aen-naas         ###   ########.fr       */
+/*   Updated: 2023/12/21 12:55:18 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raplace.hpp"
 
-
-void	Replace::ft_replace(std::string output, std::string s1, std::string s2)
+void	Replace::ft_replace(std::string output, std::string s1, std::string s2, size_t pos)
 {
-	int pos = output.find(s1, 0);
-	output.erase(s1.length(), pos);
+	output.erase(pos, s1.length());
 	output.insert(pos, s2);
-	if (output.find(s1, 0) != std::string::npos)
-		ft_replace(output, s1, s2);
+	pos += s2.length();
+	pos = output.find(s1, pos);
+	if (pos != std::string::npos)
+		ft_replace(output, s1, s2, pos);
 	else
-		this->replaced << output << '\n';
+		this->replaced << output;
 }
 
-// void	Replace::ft_replace(std::string output, std::string s1, std::string s2)
-// {
-// 	size_t		len;
-// 	size_t		i;
-// 	size_t		pos;
-// 	size_t		pass;
-// 	std::string replaced;
 
-// 	len = s1.length();
-// 	i = 0;
-// 	pass = 0;
-// 	pos = 0;
-// 	while (output[i])
-// 	{
-// 		pos = output.find(s1, pos);
-// 		if (pos != std::string::npos && pos == i)
-// 		{
-// 			for (size_t j = 0; j < s2.length(); j++)
-// 				replaced.push_back(s2[j]);
-// 			i += len - 1;
-// 			pos += len;
-// 		}
-// 		else
-// 			replaced.push_back(output[i]);
-// 		i++;
-// 	}
-// 	this->replaced << replaced << '\n';
-// 	replaced.clear();
-// }
 
-Replace::Replace(std::string orignal, std::string s1, std::string s2)
+Replace::Replace(std::string file)
 {
-	std::string output;
-	size_t		pos;
-	this->orignal.open(orignal);
+	this->orignal.open(file);
 
 	if (!this->orignal.is_open())
 	{
-		std::cout << "file has not been opened" << std::endl;
-		return ;
-	}
-	this->replaced.open(orignal + ".replace");
-	while (getline(this->orignal, output))
-	{
-		if (output.find(s1, 0) == std::string::npos)
-			ft_replace(output, s1, s2);
-		else
-			this->replaced << output << '\n';
+		std::cerr << "file has not been opened" << std::endl;
+		exit(1);
 	}
 }
+
+void	Replace::Sed(std::string file, std::string s1, std::string s2)
+{
+	char c;
+	std::string output;
+	size_t		pos;
+	
+	this->replaced.open(file + ".replace");
+	while (this->orignal.get(c))
+		output.push_back(c);
+	pos = output.find(s1, 0);
+	if (pos == std::string::npos)
+		this->replaced << output << std::endl;
+	else
+		ft_replace(output, s1, s2 , pos);
+}
+
 
 Replace::~Replace()
 {
 	this->orignal.close();
 	this->replaced.close();
-	std::cout << "files has been closed" << std::endl;
+	std::cout << "destactor: files has been closed" << std::endl;
 }

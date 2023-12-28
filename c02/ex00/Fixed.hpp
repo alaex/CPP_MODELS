@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raplace.hpp                                        :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 15:25:29 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/21 12:55:08 by aen-naas         ###   ########.fr       */
+/*   Created: 2023/12/23 17:07:42 by aen-naas          #+#    #+#             */
+/*   Updated: 2023/12/25 19:44:22 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
-#ifndef REPLACE_HPP
-#define REPLACE_HPP
-
-#include <string>
 #include <iostream>
-#include <sstream>
-#include <fstream>
+#include <string>
 
-class Replace
+class Fixed
 {
-	private:
-		std::ifstream orignal;
-		std::ofstream replaced;
-	public:
-		Replace(std::string file);
-		void	ft_replace(std::string output, std::string s1, std::string s2, size_t pos);
-		void	Sed(std::string file, std::string s1, std::string s2);
-		~Replace();
+    private:
+        int         fixed;
+        const int   fractional;
+    public:
+       Fixed();
+       Fixed(const Fixed& other);
+       Fixed& operator=(const Fixed& other);
+       ~Fixed();
+       int getRawBits(void);
+       void setRawBits(const int);
 };
 
 #endif

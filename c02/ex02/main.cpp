@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raplace.hpp                                        :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 15:25:29 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/21 12:55:08 by aen-naas         ###   ########.fr       */
+/*   Created: 2023/12/24 20:24:07 by aen-naas          #+#    #+#             */
+/*   Updated: 2023/12/27 17:27:20 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Fixed.hpp"
 
-#ifndef REPLACE_HPP
-#define REPLACE_HPP
-
-#include <string>
-#include <iostream>
-#include <sstream>
-#include <fstream>
-
-class Replace
-{
-	private:
-		std::ifstream orignal;
-		std::ofstream replaced;
-	public:
-		Replace(std::string file);
-		void	ft_replace(std::string output, std::string s1, std::string s2, size_t pos);
-		void	Sed(std::string file, std::string s1, std::string s2);
-		~Replace();
-};
-
-#endif
+int main( void ) {
+    Fixed a;
+    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+    std::cout << a << std::endl;
+    std::cout << ++a << std::endl;
+    std::cout << a << std::endl;
+    std::cout << a++ << std::endl;
+    std::cout << a << std::endl;
+    std::cout << b << std::endl;
+    std::cout << Fixed::max( a, b ) << std::endl;
+    return 0;
+}

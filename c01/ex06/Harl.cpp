@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 15:46:36 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/14 18:49:31 by aen-naas         ###   ########.fr       */
+/*   Updated: 2023/12/20 21:51:22 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 Harl::Harl()
 {
-	this->levels[0] = "debug";
-    this->levels[1] = "info";
-    this->levels[2] = "warning";
-    this->levels[3] = "error";
+	this->levels[0] = "DEBUG";
+    this->levels[1] = "INFO";
+    this->levels[2] = "WARNING";
+    this->levels[3] = "ERROR";
 }
 
 void Harl::debug(void)
@@ -45,15 +45,21 @@ void	Harl::complain(std::string level)
         &Harl::warning,
         &Harl::error
     };
-	size_t len = sizeof(this->levels) / sizeof(this->levels[0]);
-	size_t i = 0;
-	while (i < len)
-	{
-		if (this->levels[i] == level)
-		{
-			(this->*functionPointers[i])();
-			break;
-		}
+	int i = 0;
+	while (i < 4 && level != this->levels[i])
 		i++;
+	switch (i)
+	{
+		default:
+			std::cerr << "ERROR: Unknown levle" << std::endl;
+			break;
+		case 0:
+			(this->*functionPointers[0])();
+		case 1:
+			(this->*functionPointers[1])();
+		case 2:
+			(this->*functionPointers[2])();
+		case 3:
+			(this->*functionPointers[3])();
 	}
 }

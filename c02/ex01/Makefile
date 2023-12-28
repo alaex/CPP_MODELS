@@ -1,13 +1,13 @@
-NAME = BraiiiiiiinnnzzzZ
+NAME = fixed
 
-src = main.cpp Zombie.cpp randomChump.cpp newZombie.cpp
+src = Fixed.cpp main.cpp
 obj = ${src:.cpp=.o}
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 CC = c++ 
 all: ${NAME}
 
-%.o: %.cpp Zombie.hpp
+%.o: %.cpp  Fixed.hpp
 	${CC} ${FLAGS} -c $< -o $@
 
 ${NAME}: ${obj}

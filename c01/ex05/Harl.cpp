@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 15:07:19 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/13 15:36:32 by aen-naas         ###   ########.fr       */
+/*   Updated: 2023/12/20 21:57:44 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,19 @@ void	Harl::complain(std::string level)
         &Harl::warning,
         &Harl::error
     };
-	std::string levels[4] = {"debug", "info", "warning", "error"};
-	size_t len = sizeof(levels) / sizeof(levels[0]);
-	size_t i = 0;
-	while (i < len)
+	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	int i = 0;
+
+	while (i < 4)
 	{
 		if (levels[i] == level)
 		{
 			(this->*functionPointers[i])();
-			break;
+			exit(0);
 		}
 		i++;
 	}
+	std::cerr << "DEBUGING LEVEL DOSE NOT EXESTE " << std::endl;
 }
 
 
