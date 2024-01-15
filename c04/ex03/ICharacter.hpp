@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/23 17:07:42 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/28 19:05:26 by aen-naas         ###   ########.fr       */
+/*   Created: 2024/01/11 17:37:03 by aen-naas          #+#    #+#             */
+/*   Updated: 2024/01/13 12:58:29 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#ifndef ICHARACTER_HPP
+#define ICHARACTER_HPP
 
 #include <iostream>
+#include <string>
+#include "AMateria.hpp"
 
-class Fixed
-{
-    private:
-        int         fixed;
-        const int   fractional;
-    public:
-       Fixed();
-       Fixed(const Fixed& other);
-       Fixed& operator=(const Fixed& other);
-       ~Fixed();
-       int getRawBits(void) const;
-       void setRawBits(const int);
+class AMateria;
+
+class ICharacter {
+	public:
+		virtual ~ICharacter() {};
+		virtual std::string const & getName() const = 0;
+		virtual void equip(AMateria* m) = 0;
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter& target) = 0;
 };
 
 #endif

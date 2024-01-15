@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 19:03:09 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/28 15:10:15 by aen-naas         ###   ########.fr       */
+/*   Updated: 2023/12/28 19:05:22 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #define FIXED_HPP
 
 #include <iostream>
-#include <string>
 #include <cmath>
 
 class Fixed

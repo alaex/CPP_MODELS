@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/23 17:07:42 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/28 19:05:26 by aen-naas         ###   ########.fr       */
+/*   Created: 2024/01/09 17:37:04 by aen-naas          #+#    #+#             */
+/*   Updated: 2024/01/10 17:59:00 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
-#include <iostream>
+#include "Animal.hpp"
 
-class Fixed
-{
-    private:
-        int         fixed;
-        const int   fractional;
+class Cat : public Animal {
     public:
-       Fixed();
-       Fixed(const Fixed& other);
-       Fixed& operator=(const Fixed& other);
-       ~Fixed();
-       int getRawBits(void) const;
-       void setRawBits(const int);
+        Cat();
+        Cat(const std::string &name);
+        Cat(const Cat& other);
+        Cat& operator=(const Cat& other);
+        void makeSound();
+        ~Cat();
 };
 
 #endif

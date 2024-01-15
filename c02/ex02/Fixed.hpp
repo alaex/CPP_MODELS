@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 19:03:09 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/28 16:02:32 by aen-naas         ###   ########.fr       */
+/*   Updated: 2023/12/28 19:05:30 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #define FIXED_HPP
 
 #include <iostream>
-#include <string>
 #include <cmath>
 
 class Fixed
@@ -37,14 +36,10 @@ class Fixed
 			bool operator>=(const Fixed& obj) const;
 			bool operator==(const Fixed& obj) const;
 			bool operator!=(const Fixed& obj) const;
-
-			//////
-			Fixed& operator+(const Fixed& obj) ;
-			Fixed& operator-(const Fixed& obj) ;
-			Fixed& operator*(const Fixed& obj) ;
-			Fixed& operator/(const Fixed& other) ;
-			/////
-			
+			Fixed operator+(const Fixed& obj) ;
+			Fixed operator-(const Fixed& obj) ;
+			Fixed operator*(const Fixed& obj) ;
+			Fixed operator/(const Fixed& other) ;
 			Fixed& operator++();
 			Fixed  operator++(int);
 			Fixed& operator--();

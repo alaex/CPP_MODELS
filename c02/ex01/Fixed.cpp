@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 20:24:32 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/28 15:10:58 by aen-naas         ###   ########.fr       */
+/*   Updated: 2023/12/28 18:39:56 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ float Fixed::toFloat(void) const
 
 int   Fixed::toInt(void) const
 {
-	int result = roundf(toFloat());
+	int result = this->fixed >> this->fractional;
 	return (result);
 }
 

@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/23 17:07:42 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/28 19:05:26 by aen-naas         ###   ########.fr       */
+/*   Created: 2024/01/04 17:39:24 by aen-naas          #+#    #+#             */
+/*   Updated: 2024/01/04 17:44:26 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
-#include <iostream>
+#include"ClapTrap.hpp"
 
-class Fixed
+class FragTrap : public ClapTrap
 {
-    private:
-        int         fixed;
-        const int   fractional;
     public:
-       Fixed();
-       Fixed(const Fixed& other);
-       Fixed& operator=(const Fixed& other);
-       ~Fixed();
-       int getRawBits(void) const;
-       void setRawBits(const int);
+        FragTrap();
+        FragTrap(const std::string& name);
+        FragTrap(const FragTrap& other);
+        FragTrap& operator=(const FragTrap& other);
+        void highFivesGuys(void);
+        ~FragTrap();
 };
+
 
 #endif

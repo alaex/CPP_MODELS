@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/23 17:07:42 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/28 19:05:26 by aen-naas         ###   ########.fr       */
+/*   Created: 2024/01/09 16:11:40 by aen-naas          #+#    #+#             */
+/*   Updated: 2024/01/10 18:00:26 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#ifndef DOG_HPP
+#define DOG_HPP
 
-#include <iostream>
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class Fixed
-{
+class Dog : public Animal {
     private:
-        int         fixed;
-        const int   fractional;
+		Brain *brain;
     public:
-       Fixed();
-       Fixed(const Fixed& other);
-       Fixed& operator=(const Fixed& other);
-       ~Fixed();
-       int getRawBits(void) const;
-       void setRawBits(const int);
+        Dog();
+        Dog(const std::string &name);
+        Dog(const Dog& other);
+        Dog& operator=(const Dog& other);
+        void makeSound();
+        ~Dog();
 };
 
 #endif

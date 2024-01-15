@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 20:24:32 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/28 16:46:20 by aen-naas         ###   ########.fr       */
+/*   Updated: 2023/12/28 18:14:16 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,33 +30,38 @@ Fixed::Fixed(const int parameter)
 
 Fixed::Fixed(const Fixed& other)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 
 }
 // overlading operators
-Fixed& Fixed::operator+(const Fixed& other) 
+Fixed Fixed::operator+(const Fixed& other) 
 {
-	this->fixed += other.fixed;
-	return *this;
+	Fixed res;
+	res.fixed =  this->fixed + other.fixed;
+	return res;
 }
 
-Fixed& Fixed::operator*(const Fixed& other) 
+Fixed Fixed::operator-(const Fixed& other) 
 {
-	this->fixed = roundf((other.getRawBits() * this->fixed) * (1 << this->fractional));
-	return *this;
-}
-Fixed& Fixed::operator/(const Fixed& other) 
-{
-	this->fixed = roundf((this->getRawBits() / other.fixed) * (1 << this->fractional));
-	return *this;
+	Fixed res;
+	res.fixed =  this->fixed - other.fixed;
+	return res;
 }
 
-Fixed& Fixed::operator-(const Fixed& other) 
+Fixed Fixed::operator*(const Fixed& other)
 {
-	this->fixed -= other.fixed;
-	return *this;
+	Fixed res;
+	res.fixed = roundf((other.getRawBits() * this->fixed) / (1 << this->fractional));
+	return res;
 }
+Fixed Fixed::operator/(const Fixed& other)
+{
+	Fixed res;
+	res.fixed = roundf((this->getRawBits() / other.fixed) * (1 << this->fractional));
+	return res;
+}
+
 
 Fixed& Fixed::operator=(const Fixed& other) {
     if (this != &other)
@@ -109,7 +114,7 @@ float Fixed::toFloat(void) const
 
 int   Fixed::toInt(void) const
 {
-	int result = roundf(toFloat()); /// error check
+	int result = this->fixed >> this->fractional;
 	return (result);
 }
 

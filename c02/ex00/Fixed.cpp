@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:07:31 by aen-naas          #+#    #+#             */
-/*   Updated: 2023/12/25 19:44:32 by aen-naas         ###   ########.fr       */
+/*   Updated: 2023/12/28 18:18:58 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Fixed& Fixed::operator=(const Fixed& other)
 		// this->fractional = other.fractional;
 		std::cout << "Copy assignment operator called" << std::endl;
 		std::cout << this->fractional << std::endl;
-        this->fixed = other.fixed;
+        this->fixed = other.getRawBits();
 	}
 	return (*this);
 }
@@ -39,8 +39,9 @@ Fixed::~Fixed()
 }
 
 
-int Fixed::getRawBits(void)
+int Fixed::getRawBits(void) const
 {
+	std::cout << "getRawBits member function called" << std::endl;
 	return (this->fixed);
 }
 void Fixed::setRawBits(const int bits)
