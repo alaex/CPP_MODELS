@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:11:40 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/10 18:00:26 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/15 18:40:07 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,16 @@ class Dog : public Animal {
         void makeSound();
         ~Dog();
 };
+
+class WrongDog : public WrongAnimal {
+    public:
+        WrongDog();
+        WrongDog(const std::string &name);
+        WrongDog(const WrongDog& other);
+        WrongDog& operator=(const WrongDog& other);
+        void makeSound();
+        ~WrongDog();
+};
+
 
 #endif

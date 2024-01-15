@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:02:43 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/10 15:36:14 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/15 19:55:30 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Animal {
         Animal();
         Animal& operator=(const Animal& other);
         Animal(const Animal& other);
-        ~Animal();
+        virtual ~Animal();
         virtual void makeSound();
 };
 

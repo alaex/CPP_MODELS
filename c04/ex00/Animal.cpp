@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:20:43 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/10 15:36:31 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/15 18:33:16 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ Animal::~Animal()
     std::cout << "Animal destructor" << std::endl;
 }
 
+// Wrong animal class
 
 WrongAnimal::WrongAnimal()
 {

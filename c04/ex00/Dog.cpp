@@ -6,11 +6,13 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:32:05 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/10 17:59:25 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/15 17:40:57 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
+
+// Dog class
 
 Dog::Dog()
 {
@@ -45,6 +47,8 @@ Dog::~Dog()
 {
     std::cout << "Dog destructor" << std::endl;
 }
+
+// Wrong Dog class
 
 WrongDog::WrongDog()
 {

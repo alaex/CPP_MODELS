@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 13:47:11 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/14 23:11:06 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/15 16:28:14 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,6 @@ MateriaSource::MateriaSource()
 	
 }
 
-MateriaSource::~MateriaSource()
-{
-	// std::cout << "MateriaSource destructor" << std::endl;
-	for (int i = 0; i < 4; i++)
-	{
-		if (this->material[i] && this->material[i] != this->material[i + 1])
-			delete this->material[i];
-	}
-}
 
 MateriaSource::MateriaSource(const MateriaSource& other)
 {
@@ -37,13 +28,36 @@ MateriaSource::MateriaSource(const MateriaSource& other)
 	*this = other;
 }
 
+MateriaSource::~MateriaSource()
+{
+	// std::cout << "MateriaSource destructor" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			if (i != j && this->material[j] == this->material[i])
+				this->material[i] = NULL;
+		}
+		delete this->material[i];
+		this->material[i] = NULL;
+	}
+}
+
 MateriaSource &MateriaSource::operator=(const MateriaSource &other)
 {
 	if (this != &other)
 	{
-		// std::cout << "MateriaSource copy assignment operator" << std::endl;
-		// delete this;
-		*this->material = *other.material; // fix leater
+		for (int i = 0; i < 4; i++)
+		{
+			delete this->material[i];
+		}
+		for (int i = 0; i < 4; i++)
+		{
+			if (this->material[i] != NULL)
+				this->material[i] = other.material[i]->clone();
+			else
+				this->material[i] = NULL;
+		}
 	}
 	return *this;
 }
@@ -68,7 +82,7 @@ AMateria* MateriaSource::createMateria(std::string const &type)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->material[i]->getType() == type)
+		if (this->material[i] && this->material[i]->getType() == type)
 			return this->material[i]->clone();
 	}
 	return NULL;

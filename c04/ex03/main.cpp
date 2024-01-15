@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 19:28:49 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/14 23:10:25 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/15 16:32:13 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,18 @@ int main()
 {
 	atexit(f);
 	IMateriaSource* src = new MateriaSource();
-	AMateria* ice = new Ice();
-	AMateria* cure = new Cure();
-
-	*ice = *cure;
-	src->learnMateria(ice);
-	src->learnMateria(cure);
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
-	// MateriaSource* source = new MateriaSource;
-	// MateriaSource* source1 = new MateriaSource;
-	// source1 = source;
-	// delete source;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
-	me->equip(tmp);
-	ICharacter* bob = new Character("bob");
+	ICharacter* bob = NULL;
 	me->use(0, *bob);
 	me->use(1, *bob);
 	delete bob;
 	delete me;
 	delete src;
-	return 0;
 }

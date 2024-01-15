@@ -20,5 +20,4 @@ int main()
 	// Animal test1;
 
 	test.makeSound();
-	// test1.makeSound();
 }

@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:23:59 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/14 23:10:17 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/15 16:29:02 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Character::Character()
 
 Character::Character(const Character& other)
 {
-    // std::cout << "Character copy constructor" << std::endl;
+    std::cout << "Character copy constructor" << std::endl;
     *this = other;
 }
 
@@ -36,8 +36,19 @@ Character& Character::operator=(const Character& other)
 {
     if(this != &other)
     {
-        // std::cout << "Character copy assignment operator" << std::endl;
-        // this->inventory = other.inventory; // leakes
+		for (int i = 0; i < 4; i++)
+		{
+			delete this->inventory[i];
+		}
+		for (int i = 0; i < 4; i++)
+		{
+			if (other.inventory[i])
+				this->inventory[i] = other.inventory[i]->clone();
+			else
+				this->inventory[i] = NULL;
+			
+		}
+		this->name = other.name;
     }
     return *this;
 }
@@ -50,11 +61,15 @@ std::string const& Character::getName() const
 
 Character::~Character()
 {
-	// std::cout << "Character destructor" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->inventory[i] && this->inventory[i] != this->inventory[i + 1])
-			delete this->inventory[i];
+		for (int j = 0; j < 4; j++)
+		{
+			if (i != j && this->inventory[j] == this->inventory[i])
+				this->inventory[i] = NULL;
+		}
+		delete this->inventory[i];
+		this->inventory[i] = NULL;
 	}
 }
 
@@ -75,17 +90,19 @@ void Character::equip(AMateria* m)
 }
 
 void Character::unequip(int idx) {
-	if (idx > 4 || idx < 0)
+	if (idx >= 0 && idx <= 3)
 	{
-		std::cerr << "INDEX OUT OF RANGE" << std::endl;
-		// return ;
+		this->inventory[idx] = NULL;
+		return ;
 	}
-	// delete[] inventory;
-	inventory[idx] = NULL;
+	std::cerr << "INDEX OUT OF RANGE" << std::endl;
 }
 
 void	Character::use(int idx, ICharacter& target)
 {
-	this->inventory[idx]->use(target);
+	if (inventory[idx] != NULL)
+		this->inventory[idx]->use(target);
+	else
+		std::cout << "you can't use this material at the moment" << std::endl;
 }
 

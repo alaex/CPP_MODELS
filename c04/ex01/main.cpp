@@ -31,7 +31,4 @@ int main()
 		base[i]->makeSound();
 		delete base[i];
 	}
-	
-	
-	// j->makeSound();
 }
