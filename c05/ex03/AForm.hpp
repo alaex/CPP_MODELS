@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 18:58:31 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/28 15:43:51 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/28 18:01:06 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string>
 #include <iostream>
 #include "Bureaucrat.hpp"
+
 
 class AForm {
 	private:

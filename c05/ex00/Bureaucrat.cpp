@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:22:46 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/28 12:04:31 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/28 17:20:45 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,10 @@ Bureaucrat::Bureaucrat(): name("alae"), grade(1){
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade)  : name(name), grade(grade){
-	try
-	{
-		if (grade > 150)
-			throw Bureaucrat::GradeTooLowException();
-		else if (grade <= 0)
-			throw Bureaucrat::GradeTooHighException();
-	}
-	catch  (std::exception & e)
-	{
-		throw ;
-	}
+	if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else if (grade <= 0)
+		throw Bureaucrat::GradeTooHighException();
 }
 
 

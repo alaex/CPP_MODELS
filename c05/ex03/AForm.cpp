@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 18:57:59 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/27 22:46:42 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/28 17:56:48 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 // getter
 
 // getter
+
+
 const std::string	AForm::getName() const
 {
 	return this->name;

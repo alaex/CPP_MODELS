@@ -6,22 +6,24 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 19:00:24 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/27 16:24:44 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/28 17:53:53 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm()
-	:AForm("default", 25,5),target("default"){}
-PresidentialPardonForm::PresidentialPardonForm(std::string target):AForm(target, 25,5), target(target){}
+	:AForm("presidential pardon", 25,5),target("default"){}
+PresidentialPardonForm::PresidentialPardonForm(std::string target):AForm("presidential pardon", 25,5), target(target){}
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other){
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : AForm(other){
 	*this = other;
 }
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& other){
 	if (this != &other)
+	{
 		this->target  = other.target;
+	}
 	return *this;
 }
 

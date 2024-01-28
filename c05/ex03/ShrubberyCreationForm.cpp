@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 21:24:10 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/27 16:25:03 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/28 17:53:35 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 
 ShrubberyCreationForm::ShrubberyCreationForm()
-	:AForm("default", 72,45),target("default"){}
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target):AForm(target, 72,45), target(target){}
+	:AForm("shrubbery creation", 72,45),target("default"){}
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target):AForm("shrubbery creation", 72,45), target(target){}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other){
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other):AForm(other){
 	*this = other;
 }
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other){
