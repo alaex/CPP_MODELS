@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:37:04 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/15 18:34:25 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/15 21:46:48 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,6 @@ class Cat : public Animal {
         virtual ~Cat();
 };
 
-class WrongCat : public WrongAnimal {
-    public:
-        WrongCat();
-        WrongCat(const std::string &name);
-        WrongCat(const WrongCat& other);
-        WrongCat& operator=(const WrongCat& other);
-        void makeSound();
-        ~WrongCat();
-};
 
 
 #endif

@@ -1,0 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/25 19:00:33 by aen-naas          #+#    #+#             */
+/*   Updated: 2024/01/27 15:21:37 by aen-naas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PRESIDENTIALPARDONFORM_HPP
+#define PRESIDENTIALPARDONFORM_HPP
+
+#include "AForm.hpp"
+#include <cstdlib>
+#include <ctime>
+
+class PresidentialPardonForm : public AForm
+{
+	private:
+		std::string target;
+	public:
+		PresidentialPardonForm();
+		PresidentialPardonForm(std::string target);
+		PresidentialPardonForm(const PresidentialPardonForm&);
+		PresidentialPardonForm& operator=(const PresidentialPardonForm& );
+		~PresidentialPardonForm();
+		void	virtual_execute(Bureaucrat const & executor) const;
+};
+
+
+#endif

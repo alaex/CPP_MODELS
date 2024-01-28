@@ -1,8 +1,8 @@
 NAME = Animal
 
-src = Animal.cpp main.cpp Cat.cpp Dog.cpp
+src = Animal.cpp main.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp    WrongDog.cpp
 obj = ${src:.cpp=.o}
-headers = Animal.hpp Cat.hpp Dog.hpp
+headers = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp    WrongDog.hpp
 FLAGS = -Wall -Wextra -Werror -std=c++98
 CC = c++ 
 all: ${NAME}

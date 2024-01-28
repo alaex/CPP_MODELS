@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 19:28:49 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/15 16:32:13 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/15 22:40:28 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,9 @@
 #include "Cure.hpp"
 #include "Ice.hpp"
 
-void	f()
-{
-	system("leaks game");
-}
 
 int main()
 {
-	atexit(f);
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
@@ -32,7 +27,7 @@ int main()
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
-	ICharacter* bob = NULL;
+	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);
 	me->use(1, *bob);
 	delete bob;

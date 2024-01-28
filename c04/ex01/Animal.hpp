@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:52:40 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/15 18:34:04 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/15 21:46:25 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,5 @@ class Animal {
         virtual ~Animal();
         virtual void makeSound();
 };
-
-class WrongAnimal {
-    protected:
-        std::string type;
-    public:
-        WrongAnimal();
-        WrongAnimal& operator=(const WrongAnimal& other);
-        WrongAnimal(const WrongAnimal& other);
-        ~WrongAnimal();
-        void makeSound();
-};
-
 
 #endif
