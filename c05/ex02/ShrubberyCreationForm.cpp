@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 21:24:10 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/28 17:54:21 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/29 18:22:20 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm(){}
 
 void ShrubberyCreationForm::virtual_execute(Bureaucrat const & executor) const
 {
-	std::ofstream file("Shrubbery " + this->target);
+	std::ofstream file(this->target + "_shrubbery");
 	(void)executor;
 	int treeHeight = 10;
 	if (!file.is_open())

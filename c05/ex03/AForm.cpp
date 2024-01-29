@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 18:57:59 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/28 17:56:48 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:49:51 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ AForm::~AForm(){}
 
 void AForm::beSigned(const Bureaucrat& target)
 {
-	if (target.getGrade() <= this->getGradSign())
+	if (target.getGrade() <= getGradSign())
 		sign = true;
 	else
 		throw AForm::GradeTooLowException();
@@ -90,8 +90,7 @@ void	AForm::execute(const Bureaucrat &executor) const
 {
 	if (!this->getSign())
 		throw AForm::GradeTooLowException();
-	else if (this->getGradExc() < executor.getGrade())
+	if (this->getGradExc() < executor.getGrade())
 		throw AForm::GradeTooLowException();
-	else
-		virtual_execute(executor);
+	virtual_execute(executor);
 }

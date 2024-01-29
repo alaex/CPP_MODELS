@@ -12,7 +12,7 @@ all: ${NAME}
 
 %.o: %.cpp ${headers}
 	${CC} ${FLAGS} -c $< -o $@
-# Shrubbery delete file
+
 ${NAME}: ${obj}
 	${CC} ${FLAGS} ${obj} -o ${NAME}
 clean:

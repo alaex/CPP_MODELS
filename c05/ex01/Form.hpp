@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 15:47:50 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/26 12:42:48 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/29 18:31:12 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class Form {
 		Form(std::string,  int gradSign , int gradExc);
 		Form(const Form&);
 		Form& operator=(const Form&);
-		~Form();
+		virtual ~Form();
 	// member functions
 		void beSigned(const Bureaucrat&);
 	// nested classes

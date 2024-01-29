@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:22:46 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/28 15:38:38 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:50:44 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "AForm.hpp"
 
 
-// caninical form
+// canonical form
 
 Bureaucrat::Bureaucrat(): name("alae") {
 	this->grade = 10;
@@ -37,7 +37,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade)  : name(name), grade(grade){
 Bureaucrat::Bureaucrat(const Bureaucrat& other):name(other.name), grade(other.grade){}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
-	if (this == &other)
+	if (this != &other)
 		this->grade = other.getGrade();
 	return *this;
 }
@@ -106,7 +106,7 @@ void	Bureaucrat::executeForm(AForm const & form){
 	catch(const std::exception& e)
 	{
 		std::cout << this->name + " couldn't execute the form " << form.getName()<<  " because the grade is ";
-		throw;
+		std::cout << e.what() << std::endl;
 	}
 	
 }

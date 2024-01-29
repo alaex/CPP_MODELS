@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 19:00:33 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/27 15:21:37 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/29 18:27:27 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 #define PRESIDENTIALPARDONFORM_HPP
 
 #include "AForm.hpp"
-#include <cstdlib>
-#include <ctime>
+
 
 class PresidentialPardonForm : public AForm
 {

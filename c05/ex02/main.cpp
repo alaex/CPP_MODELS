@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 11:28:58 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/28 15:35:52 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/29 18:33:26 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,39 @@ int main(void)
 {
 
 	try{
-		PresidentialPardonForm test;
 		RobotomyRequestForm test1;
 		ShrubberyCreationForm test2;
-		Bureaucrat hh("me", 10);
+		Bureaucrat hh("me", 1);
 		test1.beSigned(hh);
-		std::cout << test2;
-		// test2.virtual_execute(hh);
-		// hh.executeForm(test2);
 		hh.executeForm(test1);
+	}
+	catch(const std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << "----------------------------------------------------------------" << std::endl;
+	try{
+		PresidentialPardonForm test;
+		Bureaucrat hh("me", 1);
+		test.beSigned(hh);
+
+
+		hh.executeForm(test);
+	}
+	catch(const std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << "----------------------------------------------------------------" << std::endl;
+
+	
+	try{
+		ShrubberyCreationForm test2;
+		Bureaucrat hh("me", 1);
+		test2.beSigned(hh);
+
+		hh.executeForm(test2);
 	}
 	catch(const std::exception &e)
 	{

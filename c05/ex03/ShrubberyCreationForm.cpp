@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 21:24:10 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/28 17:53:35 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/29 17:38:31 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,18 @@ ShrubberyCreationForm::~ShrubberyCreationForm(){}
 
 void ShrubberyCreationForm::virtual_execute(Bureaucrat const & executor) const
 {
-	std::ofstream file("Shrubbery " + this->target);
+	std::ofstream file(this->target + "_shrubbery");
 	(void)executor;
-	int treeHeight = 10;
 	if (!file.is_open())
-		return ;
+		throw std::runtime_error("couldn't open the file");
 	// 	throw ;
-	for (int i = 0; i < treeHeight; ++i) {
-        for (int j = 0; j < treeHeight - i - 1; ++j) {
-            file << " ";
-        }
-        for (int k = 0; k < 2 * i + 1; ++k) {
-            file << "*";
-        }
-
-        file << std::endl;
-    }
-    for (int i = 0; i < treeHeight - 1; ++i) {
-        file << " ";
-    }
-    file << "||" << std::endl;
+	file << "      ^      " << std::endl;
+    file << "     ^^^     " << std::endl;
+    file << "    ^^^^^    " << std::endl;
+    file << "   ^^^^^^^   " << std::endl;
+    file << "  ^^^^^^^^^  " << std::endl;
+    file << " ^^^^^^^^^^^ " << std::endl;
+    file << "^^^^^^^^^^^^^" << std::endl;
+    file << "      ||      " << std::endl;
 	file.close();
 }

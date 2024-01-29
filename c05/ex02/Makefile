@@ -10,9 +10,9 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 CC = c++ 
 all: ${NAME}
 
-%.o: %.cpp  Bureaucrat.hpp
+%.o: %.cpp  ${headers}
 	${CC} ${FLAGS} -c $< -o $@
-# Shrubbery delete file
+
 ${NAME}: ${obj}
 	${CC} ${FLAGS} ${obj} -o ${NAME}
 clean:

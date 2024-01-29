@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 18:33:22 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/28 17:23:36 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/29 16:58:32 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ AForm* Intern::makeForm(std::string name, std::string target)
 	{
 		case 0:
 		{
-			return new PresidentialPardonForm(target);
+			result = new PresidentialPardonForm(target);
 			break;
 		}
 		case 1:
@@ -43,16 +43,15 @@ AForm* Intern::makeForm(std::string name, std::string target)
 		}
 		default:
 		{
+			std::cerr << name;
 			throw Intern::Search();
 		}
 	}
-	if (result)
-		std::cout << "Intern creates" << type[i] << std::endl; 
+	std::cout << "Intern creates " << type[i] << std::endl; 
 	return result;
 }
 
-
 const char  *Intern::Search::what() const throw()
 {
-	return "could not find the form";
+	return " could not be found";
 }

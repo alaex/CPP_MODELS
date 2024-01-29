@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:22:46 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/28 15:37:39 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:35:47 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "Form.hpp"
 
 
-// caninical form
+// canonical form
 
 Bureaucrat::Bureaucrat(): name("alae") {
 	this->grade = 30;

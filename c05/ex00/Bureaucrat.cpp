@@ -6,13 +6,13 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:22:46 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/28 17:20:45 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:35:47 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-// caninical form
+// canonical form
 
 Bureaucrat::Bureaucrat(): name("alae"), grade(1){
 }
