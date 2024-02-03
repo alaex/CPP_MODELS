@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 18:33:22 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/01/29 16:58:32 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:22:31 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 AForm* Intern::makeForm(std::string name, std::string target)
 {	
+	std::cout << "test" ;
 	int i = 0;
 	AForm *result;
 	std::string type[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};
