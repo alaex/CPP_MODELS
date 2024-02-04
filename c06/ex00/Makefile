@@ -1,6 +1,6 @@
 NAME = Scast
 
-src = ScalarConverter.cpp main.cpp
+src = ScalarConverter.cpp 
 obj = ${src:.cpp=.o}
 
 FLAGS = -Wall -Wextra -Werror -std=c++98

@@ -1,7 +1,7 @@
-NAME = Serializer
-src = Serializer.cpp 
+NAME = Base
+src = Base.cpp 
 obj = ${src:.cpp=.o}
-headers = Serializer.hpp
+headers = Base.hpp
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 CC = c++
