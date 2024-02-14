@@ -71,5 +71,5 @@
 		"amateria.hpp": "c",
 		"scalarconverter.hpp": "c"
 	},
-	"C_Cpp.errorSquiggles": "disabled"
+	"C_Cpp.errorSquiggles": "enabled"
 }

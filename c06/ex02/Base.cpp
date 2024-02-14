@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 21:37:03 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/02/04 10:58:49 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/02/05 18:14:30 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,11 @@ void identify(Base& p)
 
 int main()
 {
-	Base *test = generate();
-	identify(test);
-	identify(*test);
+	Base *test ;
+	A *x = new A();
+	test = dynamic_cast<Base*>(x);
+	// identify(test);
+
+	// identify(*test);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:29:54 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/02/04 17:14:52 by aen-naas         ###   ########.fr       */
+/*   Updated: 2024/02/05 17:34:56 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,39 +20,11 @@ void    display_cast(const std::string& str)
 	std::cout << "double: " << str << std::endl;
 }
 
-void    ft_cast_flout(std::istringstream& str)
-{
-	float c;
-	str >> c;
-	if (!str.fail())
-		std::cout << "float: " << c << std::endl;
-	else
-		std::cout << "float: " << "imposible" << std::endl;
-}
-void    ft_cast_double(std::istringstream& str)
-{
-	double c;
-	str >> c;
-	if (!str.fail())
-		std::cout << "double: " << c << std::endl;
-	else
-		std::cout << "double: " << "imposible" << std::endl;
-}
-
-void    ft_cast_int(std::istringstream& str)
-{
-	int c;
-	str >> c;
-	if (str.fail())
-		std::cout << "int: " << c << std::endl;
-	else
-		std::cout << "int: " << "imposible" << std::endl;
-}
 
 void    to_char(int& c)
 {
 	if (c >= 32 & c <= 126)
-		std::cout << "char: " << "\'" << static_cast<char>(c) << "\'" << std::endl;
+		std::cout << "char: " << "'" << static_cast<char>(c) << "'" << std::endl;
 	else
 		std::cout << "char: " << "imposible" << std::endl;
 }
@@ -71,44 +43,41 @@ void	ft_cast(std::string& str)
 	std::istringstream iss(str);
 	double result;
 	int int_Res;
-	iss >> result ;
+	iss >> result;
 	int_Res = static_cast<int>(result);
 	to_char(int_Res);
 	std::cout << "int: " << int_Res << std::endl;
-	// if (str.find('.') == std::string::npos)
-	// {
-	// 	std::cout << "float: " << static_cast<float>(result) << ".0f" << std::endl;
-	// 	std::cout << "double: " << (result) << ".0" << std::endl;
-	// }
-	// else
-	// {
-		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(result) << "f" << std::endl;
-		std::cout << "double: "  << std::fixed << std::setprecision(1) << result << std::endl;
-	// }
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(result) << "f" << std::endl;
+	std::cout << "double: "  << std::fixed << std::setprecision(1) << result << std::endl;
 }
 
 bool ft_check(std::string& str)
 {
 	bool decimalPointFound = false;
 
-	for (size_t i = 0; i < str.length(); ++i) 
+	if (str.length() == 1)
+		ft_input_one_character(str);
+	else
 	{
-		char ch = str[i];
-
-		if (i == 0 && (ch == '+' || ch == '-'))
-			continue;
-		if (ch == '.')
+		for (size_t i = 0; i < str.length(); ++i) 
 		{
-			if (decimalPointFound)
+			char ch = str[i];
+
+			if (i == 0 && (ch == '+' || ch == '-'))
+				continue;
+			if (ch == '.')
+			{
+				if (decimalPointFound)
+					return true;
+				decimalPointFound = true;
+			}
+			else if (!std::isdigit(ch) && ch != 'f')
 				return true;
-			decimalPointFound = true;
 		}
-		else if (!std::isdigit(ch) && ch != 'f')
-			return true;
+		if (str[str.length() - 1] == 'f')
+			str.erase(str.end() - 1);
+		ft_cast(str);
 	}
-	if (str[str.length() - 1] == 'f')
-		str.erase(str.end() - 1);
-	ft_cast(str);
 	return false;
 }
 
@@ -137,11 +106,16 @@ void ScalarConverter::convert(std::string& str)
 int main(int ac, char **av)
 {
 
-	if (ac != 2)
-	{
-		std::cerr << "error: Invalid arguments" << std::endl;
-		return 1;
-	}
-	std::string str(av[1]);
-	ScalarConverter::convert(str);
+	// if (ac != 2)
+	// {
+	// 	std::cerr << "error: Invalid arguments" << std::endl;
+	// 	return 1;
+	// }
+	// std::string str(av[1]);
+	// ScalarConverter::convert(str);
+	// int intValue = 10;
+	int x = 15;
+	int *doubleValue = &x;
+	
+	char *str = reinterpret_cast<char *>(doubleValue);
 }

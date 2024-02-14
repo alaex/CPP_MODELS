@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.cpp                                     :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/03 17:40:58 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/02/05 16:50:16 by aen-naas         ###   ########.fr       */
+/*   Created: 2024/02/13 11:54:50 by aen-naas          #+#    #+#             */
+/*   Updated: 2024/02/13 11:55:19 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serializer.hpp"
-
-uintptr_t Serializer::serialize(Data* ptr)
-{
-    return reinterpret_cast<uintptr_t>(ptr);
-}
-Data* Serializer::deserialize(uintptr_t raw)
-{
-    return reinterpret_cast<Data*>(raw);
-}
+#include "easyfind.hpp"
 
 int main()
 {
-    Data *test = new Data();
-    uintptr_t holder;
-    test->value = 15;
-    holder = Serializer::serialize(test);
-    test = Serializer::deserialize(holder);
-    std::cout << test->value << std::endl;
-    delete test;
+
     return (0);
 }
