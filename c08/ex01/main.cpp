@@ -5,30 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aen-naas <aen-naas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/13 11:54:50 by aen-naas          #+#    #+#             */
-/*   Updated: 2024/02/15 09:48:19 by aen-naas         ###   ########.fr       */
+/*   Created: 2024/02/18 18:15:52 by aen-naas          #+#    #+#             */
+/*   Updated: 2024/02/27 13:18:09 by aen-naas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
+#include "Span.hpp"
 
 int main()
 {
-    std::vector<int> vec;
-    for (size_t i = 0; i < 5; i++)
-    {
-       vec.push_back(i);
-    }
-    
-    int target = 3;
     try
     {
-        easyfind(vec, target);
+        Span sp = Span(10);
+        sp.addNumber(6);
+        sp.addNumber(3);
+        sp.addNumber(17);
+        sp.addNumber(9);
+        sp.addNumber(11);
+        // sp.addNumbers(0, 5);
+        std::cout << sp.shortestSpan() << std::endl;
+        std::cout << sp.longestSpan() << std::endl;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
     
-    return (0);
+    
+    
+    return 0;
 }
